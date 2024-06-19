@@ -47,7 +47,7 @@ struct ICM42688
 
     static constexpr float MagTs=1.0/100;
 
-    static constexpr float GyroSensitivity = 32.8f;
+    static constexpr float GyroSensitivity = 16.384f;
     static constexpr float AccelSensitivity = 4096.0f;
 
     I2CImpl i2c;
@@ -90,7 +90,7 @@ struct ICM42688
         };
         struct GyroConfig {
             static constexpr uint8_t reg = 0x4f;
-            static constexpr uint8_t value = (0b001 << 5) | 0b0111; //1000dps, odr=200Hz
+            static constexpr uint8_t value = (0b000 << 5) | 0b0111; //2000dps, odr=200Hz
         };
         struct AccelConfig {
             static constexpr uint8_t reg = 0x50;
